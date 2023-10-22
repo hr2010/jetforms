@@ -1,81 +1,144 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <meta charset="utf-8">
+        <tittle>Register</tittle>
 
         <style>
-            .link:hover
+            
+            *
             {
-                background-color: white;
-            }
-            .link2:hover
-            {
-                background-color: white;
-            }
-            .link3:hover
-            {
-                background-color: white;
-            }
-            .link4:hover
-            {
-                background-color: white;
-            }
-            .link5:hover
-            {
-                background-color: white;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
             }
 
-            .link1:hover
+            body{
+                background-color: bisque;
+            }
+
+            .container
             {
-                background-color: blue;
+                background-color: azure;
+                width: 500px;
+                padding: 25px;
+                margin: 50px auto;
+            }
+
+            .rs{
+                color: red;
+                align: center;
+            }
+
+            .name2{
+                color: brown;
+                font-size: 30;
+            }
+
+            .name:hover
+            {
+                background-color: antiquewhite;
+            }
+
+            .email:hover
+            {
+                background-color: antiquewhite;
+            }
+
+            .password:hover
+            {
+                background-color: antiquewhite;
+            }
+
+            .email2{
+                color: brown;
+                font-size: 25;
+            }
+
+            .name
+            {
+                color: blue;
+                font-size: 20;
+            }
+
+            .email
+            {
+                color: blue;
+                font-size: 20;
+            }
+
+            .pw
+            {
+                color: blueviolet;
+                font-size: 20;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            .password
+            {
+                color: blue;
+                font-size: 20;
+            }
+
+            .res{
+                color: red;
+                background-color: blueviolet;
+                width: 100%;
+                height: 30px;
+            }
+
+            .res:hover
+            {
+                background-color: aqua;
+            }
+
+            .check-button
+            {
+                border-color: blue;
+            }
+
+            .check-button:hover{
+                background-color: aqua;
+            }
+
+            .check{
+                background-color: bisque;
             }
         </style>
 
     </head>
-    <body>
-        <body background="E:\coding file\extra\50-Beautiful-and-Minimalist-Presentation-Backgrounds-031.jpg">
-            <h3 align="center">
-                <font face="Lato" size="20" color="red">Jetforms</font>
-                &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <font face="cinzel"></font>
-                <a href="https://form.jotform.com/232932714312046" class="link">
-                    <image src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fcdn4.iconfinder.com%2Fdata%2Ficons%2Fionicons%2F512%2Ficon-ios7-contact-512.png&tbnid=EvyopovtPH0MyM&vet=1&imgrefurl=https%3A%2F%2Fwww.iconfinder.com%2Ficons%2F211605%2Fcontact_icon&docid=PeAmzbWqFEq7zM&w=512&h=512&source=sh%2Fx%2Fim%2Fm1%2F1&shem=uvafe2" alt="Contact Us">
-                </a>&nbsp; &nbsp;
-                <a href="http://jetforms.blogspot.com/" class="link2">
-                    <image src="https://images.app.goo.gl/GMAjESvzLERjGRNZ6" alt="Blog">
-                </a>&nbsp; &nbsp;
-                <a href="http://jetforms.blogspot.com/2023/10/forms.html" class="link3">
-                    <image src="https://images.app.goo.gl/uZHBF2Xe4F1RQ37dA" alt="Forms">
-                </a>&nbsp; &nbsp;
-                <a href="http://jetforms.blogspot.com/2023/10/apps.html" class="link4">
-                    <image src="https://images.app.goo.gl/K5Q3pQ9jCuJrt72b8" alt="Apps">
-                </a>&nbsp; &nbsp;
-                <a href="http://jetforms.blogspot.com/2023/10/notice.html" class="link5">
-                    <image src="https://images.app.goo.gl/JH4Uq63QBTJcQgBN6" alt="Notice">
-                </a>&nbsp; &nbsp;
-            </h3>
-            <hr size="2px" width="100%" align="center" color="white" noshade>
-        </hr>
-            <br /><br />
-            <h1 align="center">
-                <font face="ELEPHANT" color="#017bf5" size="10">
-                    this website was app maker
-                </font>
-            </h1>
-            <h3 align="center">
-                <font face="latin" color="brown" size="6">
-                    what you make a any app!
-                    If yes! go to form link
-                </font>
-            </h3>
+<body>
+    <div class="container">
+    <form>
+        <h1 class="rs">Register</h1>
 
-            <h3 align="center">
-                <a href="#" class="link1">
-                    <font color="red">Get Started</font>
-                </a>
-            </h3>
-    </body>
-</html>
+        <label for="name" class="name2">Name:</label>
+        <input type="text" id="name" class="name" required><br /><br />
+
+        <label for="email" class="email2">Email id</label required>
+        <input type="email" id="email" class="email" required><br /><br />
+
+        <label for="password" class="pw">Password</label>
+        <input type="password" id="password" class="password" required><br /><br />
+
+        <label for="password" class="pw">Confirm Password</label>
+        <input type="password" id="password" class="password" required><br /><br />
+
+        <div class="input-name">
+            <input type="radio" class="radio-button" name="r1">&nbsp; 
+            <label>Male</label>&nbsp; &nbsp; &nbsp;
+
+            <input type="radio" class="radio-button" name="r1">&nbsp; 
+            <label style="margin-right: 6px;">Female</label>&nbsp; &nbsp; &nbsp;
+        </div><br>
+
+        <div class="input-name">
+            <input type="checkbox" id="cb" class="check-button">
+            <label for="cb" class="check">I accept terms and condition</label>
+        </div><br>
+        
+        <a href="">
+        <input type="button" value="Register" class="res">
+        </a>
+        </form>
+    </div>
+        </body>
+        </html>
