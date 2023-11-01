@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up & Login</title>
+</head>
+<body>
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+        Username: <input type="text" id="signupUsername" required><br>
+        Password: <input type="password" id="signupPassword" required><br>
+        <button type="submit">Sign Up</button>
+    </form>
+
+    <h2>Login</h2>
+    <form id="loginForm">
+        Username: <input type="text" id="loginUsername" required><br>
+        Password: <input type="password" id="loginPassword" required><br>
+        <button type="submit">Login</button>
+        <button type="button" id="forgotPassword">Forgot Password</button>
+    </form>
+
+    <p id="status"></p>
+
+    <script>
+        const users = {};
+
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const signupUsername = document.getElementById('signupUsername').value;
+            const signupPassword = document.getElementById('signupPassword').value;
+            if (!users[signupUsername]) {
+                users[signupUsername] = signupPassword;
+                document.getElementById('signupUsername').value = '';
+                document.getElementById('signupPassword').value = '';
+                document.getElementById('status').innerText = 'Sign Up successful!';
+            } else {
+                document.getElementById('status').innerText = 'Username already exists. Please choose a different username.';
+            }
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const loginUsername = document.getElementById('loginUsername').value;
+            const loginPassword = document.getElementById('loginPassword').value;
+            if (users[loginUsername] === loginPassword) {
+                document.getElementById('status').innerText = 'Please Wait... Login successful!';
+                setTimeout(function() {
+                    window.location.href = 'https://hr2010.github.io/jetforms.in/';
+                }, 2000);
+            } else {
+                document.getElementById('status').innerText = 'Login failed. Please check your username and password.';
+            }
+        });
+
+        document.getElementById('forgotPassword').addEventListener('click', function() {
+            const username = prompt('Enter your username to reset the password:');
+            if (users[username]) {
+                const newPassword = prompt('Enter a new password:');
+                users[username] = newPassword;
+                document.getElementById('status').innerText = 'Password reset successful!';
+            } else {
+                document.getElementById('status').innerText = 'Username not found. Please check your username.';
+            }
+        });
+    </script>
+</body>
+</html>
