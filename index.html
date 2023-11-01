@@ -1,168 +1,67 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <tittle>Register</tittle>
-
-        <style>
-            
-            *
-            {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-
-            body{
-                background-color: bisque;
-            }
-
-            .container
-            {
-                background-color: azure;
-                width: 500px;
-                padding: 25px;
-                margin: 50px auto;
-            }
-
-            .rs{
-                color: red;
-                align: center;
-            }
-
-            .name2{
-                color: brown;
-                font-size: 30;
-            }
-
-            .name:hover
-            {
-                background-color: antiquewhite;
-            }
-
-            .email:hover
-            {
-                background-color: antiquewhite;
-            }
-
-            .password:hover
-            {
-                background-color: antiquewhite;
-            }
-
-            .email2{
-                color: brown;
-                font-size: 25;
-            }
-
-            .name
-            {
-                color: blue;
-                font-size: 20;
-            }
-
-            .email
-            {
-                color: blue;
-                font-size: 20;
-            }
-
-            .pw
-            {
-                color: blueviolet;
-                font-size: 20;
-                font-family: Arial, Helvetica, sans-serif;
-            }
-
-            .password
-            {
-                color: blue;
-                font-size: 20;
-            }
-
-            .res{
-                color: red;
-                background-color: blueviolet;
-                width: 100%;
-                height: 30px;
-            }
-
-            .res:hover
-            {
-                background-color: aqua;
-            }
-
-            .check-button
-            {
-                border-color: blue;
-            }
-
-            .check-button:hover{
-                background-color: aqua;
-            }
-
-            .check{
-                background-color: bisque;
-            }
-        </style>
-
-    </head>
+<head>
+    <title>Sign Up & Login</title>
+</head>
 <body>
-    <div class="container">
-    <form>
-        <h1 class="rs">Register</h1>
-
-        <label for="name" class="name2">Name:</label>
-        <input type="text" id="name" class="name" required><br /><br />
-
-        <label for="email" class="email2">Email id</label required>
-        <input type="email" id="email" class="email" required><br /><br />
-
-        <label for="password" class="pw">Password</label>
-        <input type="password" id="password" class="password" required><br /><br />
-
-        <label for="password" class="pw">Confirm Password</label>
-        <input type="password" id="password" class="password" required><br /><br />
-
-        <div class="input-name">
-            <input type="radio" class="radio-button" name="r1">&nbsp; 
-            <label>Male</label>&nbsp; &nbsp; &nbsp;
-
-            <input type="radio" class="radio-button" name="r1">&nbsp; 
-            <label style="margin-right: 6px;">Female</label>&nbsp; &nbsp; &nbsp;
-        </div><br>
-
-        <div class="input-name">
-            <input type="checkbox" id="cb" class="check-button">
-            <label for="cb" class="check">I accept terms and condition</label>
-        </div><br>
-        
-        <a href="https://hr2010.github.io/jet-login/">
-        <input type="button" value="Register" class="res">
-        </a>
-        </form>
-    </div>
-    <script>
-        document.write("<h1>welcome to jet register</h1>")
-    </script>
-
-<script type="text/javascript">
-    <!--
-    function myFunc()
-    {
-     var a = 100;
-     
-     try {
-     document.write ("Jet forms : " + a );
-     } catch ( e ) {
-     document.write ("Error: " + e.description );
-     }
-    }
-    //-->
-    </script>
-    </head>
-    <body>
-    <p>Click the following to see the result:</p>
-    <form>
-    <input type="button" value="Click Me" onclick="myFunc();" />
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+        Username: <input type="text" id="signupUsername" required><br>
+        Password: <input type="password" id="signupPassword" required><br>
+        <button type="submit">Sign Up</button>
     </form>
-        </body>
-        </html>
+
+    <h2>Login</h2>
+    <form id="loginForm">
+        Username: <input type="text" id="loginUsername" required><br>
+        Password: <input type="password" id="loginPassword" required><br>
+        <button type="submit">Login</button>
+        <button type="button" id="forgotPassword">Forgot Password</button>
+    </form>
+
+    <p id="status"></p>
+
+    <script>
+        const users = {};
+
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const signupUsername = document.getElementById('signupUsername').value;
+            const signupPassword = document.getElementById('signupPassword').value;
+            if (!users[signupUsername]) {
+                users[signupUsername] = signupPassword;
+                document.getElementById('signupUsername').value = '';
+                document.getElementById('signupPassword').value = '';
+                document.getElementById('status').innerText = 'Sign Up successful!';
+            } else {
+                document.getElementById('status').innerText = 'Username already exists. Please choose a different username.';
+            }
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const loginUsername = document.getElementById('loginUsername').value;
+            const loginPassword = document.getElementById('loginPassword').value;
+            if (users[loginUsername] === loginPassword) {
+                document.getElementById('status').innerText = 'Please Wait... Login successful!';
+                setTimeout(function() {
+                    window.location.href = 'https://hr2010.github.io/jetforms.in/';
+                }, 2000);
+            } else {
+                document.getElementById('status').innerText = 'Login failed. Please check your username and password.';
+            }
+        });
+
+        document.getElementById('forgotPassword').addEventListener('click', function() {
+            const username = prompt('Enter your username to reset the password:');
+            if (users[username]) {
+                const newPassword = prompt('Enter a new password:');
+                users[username] = newPassword;
+                document.getElementById('status').innerText = 'Password reset successful!';
+            } else {
+                document.getElementById('status').innerText = 'Username not found. Please check your username.';
+            }
+        });
+    </script>
+</body>
+</html>
