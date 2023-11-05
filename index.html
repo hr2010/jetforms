@@ -1,9 +1,79 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <body>
-            <h1>Sign UP Now<h1>
-            I have already account!
-            Gp to <a href="https://hr2010.github.io/jetforms/index.php">SIGN UP</a> page!
-        </body>
-    </head>
+<head>
+    <title>Sign Up & Login</title>
+    <style>
+        .body{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <body background="blue">
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+        Username: <input type="text" id="signupUsername" required><br>
+        Password: <input type="password" id="signupPassword" required><br>
+        <button type="submit">Sign Up</button>
+    </form>
+
+    <h2>Login</h2>
+    <form id="loginForm">
+        Username: <input type="text" id="loginUsername" required><br>
+        Password: <input type="password" id="loginPassword" required><br>
+        <button type="submit">Login</button>
+    </form>
+
+    <h2>Forgot Password</h2>
+    <form id="forgotPasswordForm">
+        Username: <input type="text" id="forgotUsername" required><br>
+        <button type="submit">Reset Password</button>
+    </form>
+
+    <p id="status"></p>
+
+    <script>
+        const users = {};
+        const registeredUsers = new Set();
+
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const signupUsername = document.getElementById('signupUsername').value;
+            if (!registeredUsers.has(signupUsername)) {
+                const signupPassword = document.getElementById('signupPassword').value;
+                users[signupUsername] = signupPassword;
+                registeredUsers.add(signupUsername);
+                document.getElementById('signupUsername').value = '';
+                document.getElementById('signupPassword').value = '';
+                document.getElementById('status').innerText = 'Sign Up successful!';
+            } else {
+                document.getElementById('status').innerText = 'Username already registered. Please choose a different one.';
+            }
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const loginUsername = document.getElementById('loginUsername').value;
+            const loginPassword = document.getElementById('loginPassword').value;
+            if (users[loginUsername] === loginPassword) {
+                document.getElementById('status').innerText = 'Login successful! Redirecting to your website...';
+                setTimeout(function() {
+                    window.location.href = 'https://hr2010.github.io/jetforms.in/';
+                }, 2000);
+            } else {
+                document.getElementById('status').innerText = 'Login failed. Please check your username and password.';
+            }
+        });
+
+        document.getElementById('forgotPasswordForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const forgotUsername = document.getElementById('forgotUsername').value;
+            if (registeredUsers.has(forgotUsername)) {
+                alert(`Your password is: ${users[forgotUsername]}`);
+            } else {
+                alert('Username not found. Please check your username.');
+            }
+        });
+    </script>
+</body>
 </html>
